@@ -16,16 +16,9 @@ class CounterPage extends StatelessWidget {
         bool isLight = !isDark;
         return Scaffold(
           appBar: AppBar(
-            backgroundColor: Colors.blue,
             centerTitle: true,
-            title: Text(
-              style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-                fontSize: 25,
-              ),
-              "Counter",
-            ),
+            title: Text("Counter"),
+            elevation: 1,
             actions: [
               IconButton(
                 onPressed: () {
@@ -39,12 +32,12 @@ class CounterPage extends StatelessWidget {
                       : Icons.nightlight_round_outlined,
                 ),
               ),
-              // Switch(
-              //   value: isDark,
-              //   onChanged: (value) {
-              //     context.read<ThemeCubit>().toggleTheme(value);
-              //   },
-              // ),
+              Switch(
+                value: isDark,
+                onChanged: (value) {
+                  context.read<ThemeCubit>().toggleTheme(value);
+                },
+              ),
             ],
           ),
           body: BlocBuilder<CounterBloc, CounterState>(
